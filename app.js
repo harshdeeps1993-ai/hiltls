@@ -175,34 +175,33 @@
       buildDetailHTML(ep) +
       "</div>";
 
-    card.addEventListener("click", function (e) {
-      // Don't collapse if clicking a link
-      if (e.target.tagName === "A") return;
-      card.classList.toggle("expanded");
-    });
+    // Only toggle on header/indicator clicks, not on body text (so users can select text)
+    var header = card.querySelector(".episode-header");
+    var indicator = card.querySelector(".expand-indicator");
+    function toggle() { card.classList.toggle("expanded"); }
+    header.style.cursor = "pointer";
+    header.addEventListener("click", toggle);
+    indicator.addEventListener("click", toggle);
 
     return card;
   }
 
   function buildDetailHTML(ep) {
     var html = "";
+    var questions = ep.keyQuestions || [];
+    var answers = ep.keyAnswers || [];
 
-    if (ep.keyQuestions && ep.keyQuestions.length) {
+    if (questions.length) {
       html += '<div class="detail-section">';
-      html += "<h4>Key Questions</h4><ul>";
-      for (var i = 0; i < ep.keyQuestions.length; i++) {
-        html += "<li>" + escapeHtml(ep.keyQuestions[i]) + "</li>";
+      html += "<h4>Key Questions &amp; Answers</h4>";
+      html += '<dl class="qa-pairs">';
+      for (var i = 0; i < questions.length; i++) {
+        html += '<dt>' + escapeHtml(questions[i]) + "</dt>";
+        if (i < answers.length) {
+          html += '<dd>' + escapeHtml(answers[i]) + "</dd>";
+        }
       }
-      html += "</ul></div>";
-    }
-
-    if (ep.keyAnswers && ep.keyAnswers.length) {
-      html += '<div class="detail-section">';
-      html += "<h4>Key Answers &amp; Claims</h4><ul>";
-      for (var i = 0; i < ep.keyAnswers.length; i++) {
-        html += "<li>" + escapeHtml(ep.keyAnswers[i]) + "</li>";
-      }
-      html += "</ul></div>";
+      html += "</dl></div>";
     }
 
     if (ep.sourcesAndReferences && ep.sourcesAndReferences.length) {

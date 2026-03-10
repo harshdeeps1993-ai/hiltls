@@ -142,8 +142,10 @@
       "  </div>" +
       "</div>";
 
-    card.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") return;
+    // Only toggle on header click, not body text (so users can select text)
+    var header = card.querySelector(".qa-header");
+    header.style.cursor = "pointer";
+    header.addEventListener("click", function () {
       card.classList.toggle("expanded");
       var toggle = card.querySelector(".qa-toggle");
       toggle.textContent = card.classList.contains("expanded") ? "\u2212" : "+";

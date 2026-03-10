@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HILTLS - Common Questions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="container">
+    <ul><li><strong>HILTLS</strong></li></ul>
+    <ul>
+      <li><a href="index.html">Episodes</a></li>
+      <li><a href="questions.html" class="active-link">Common Questions</a></li>
+    </ul>
+  </nav>
+
+  <header class="container">
+    <hgroup>
+      <h1>Common Questions</h1>
+      <p>Recurring themes across all 64 episodes &mdash; synthesized answers with episode references</p>
+    </hgroup>
+  </header>
+
+  <main class="container">
+    <section id="controls">
+      <input type="search" id="search-input" placeholder="Search questions and answers..." aria-label="Search questions">
+      <div id="tag-cloud" role="group" aria-label="Filter by tag"></div>
+      <p id="results-count" class="results-count"></p>
+    </section>
+
+    <section id="questions-list" aria-label="Questions"></section>
+  </main>
+
+  <footer class="container">
+    <p><small>Answers synthesized from <a href="index.html">64 podcast episodes</a>. Data may contain inaccuracies from automated summarization.</small></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+  <script src="questions.js"></script>
+</body>
+</html>

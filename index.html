@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HILTLS - Podcast Summary Database</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="container">
+    <ul><li><strong>HILTLS</strong></li></ul>
+    <ul>
+      <li><a href="index.html" class="active-link">Episodes</a></li>
+      <li><a href="questions.html">Common Questions</a></li>
+    </ul>
+  </nav>
+
+  <header class="container">
+    <hgroup>
+      <h1>How I Learned to Love Shrimp</h1>
+      <p>Searchable database of all podcast episodes &mdash; animal advocacy strategy, alternative proteins, policy, and more</p>
+    </hgroup>
+  </header>
+
+  <main class="container">
+    <section id="controls">
+      <div class="search-row">
+        <input type="search" id="search-input" placeholder="Search episodes, guests, topics..." aria-label="Search episodes">
+        <select id="sort-select" aria-label="Sort episodes">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="longest">Longest first</option>
+          <option value="shortest">Shortest first</option>
+          <option value="alpha">A &rarr; Z</option>
+        </select>
+      </div>
+      <div id="tag-cloud" role="group" aria-label="Filter by tag"></div>
+      <p id="results-count" class="results-count"></p>
+    </section>
+
+    <section id="episodes-list" aria-label="Episodes"></section>
+  </main>
+
+  <footer class="container">
+    <p><small>Built from <a href="https://www.buzzsprout.com/2122817" target="_blank" rel="noopener">Buzzsprout transcripts</a>. Data may contain inaccuracies from automated summarization.</small></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

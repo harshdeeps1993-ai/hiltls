@@ -1,0 +1,318 @@
+/* Nav bar */
+nav.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+
+nav a:hover,
+nav a.active-link {
+  color: var(--pico-primary);
+}
+
+/* Layout tweaks */
+header hgroup {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.25rem;
+}
+
+/* Search row */
+.search-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.search-row input[type="search"] {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.search-row select {
+  width: auto;
+  min-width: 160px;
+  margin-bottom: 0;
+}
+
+/* Tag cloud */
+#tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  border: 1px solid var(--pico-muted-border-color);
+  background: var(--pico-card-background-color);
+  color: var(--pico-color);
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.tag-pill:hover {
+  border-color: var(--pico-primary);
+}
+
+.tag-pill.active {
+  background: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+  border-color: var(--pico-primary);
+}
+
+/* Results count */
+.results-count {
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  margin: 0 0 1rem 0;
+}
+
+/* Episode cards */
+.episode-card {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.episode-card:hover {
+  border-color: var(--pico-primary);
+}
+
+.episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.episode-header h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.episode-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: var(--pico-muted-color);
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.episode-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.episode-tag {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background: var(--pico-muted-border-color);
+  color: var(--pico-muted-color);
+}
+
+.episode-number {
+  font-size: 0.82rem;
+  color: var(--pico-muted-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+/* Episode summary */
+.episode-summary {
+  font-size: 0.88rem;
+  color: var(--pico-muted-color);
+  margin: 0.5rem 0 0.25rem 0;
+  line-height: 1.5;
+}
+
+/* Expand indicator */
+.expand-indicator {
+  font-size: 0.8rem;
+  color: var(--pico-muted-color);
+  margin-top: 0.3rem;
+}
+
+/* Detail view */
+.episode-detail {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+}
+
+.episode-card.expanded .episode-detail {
+  display: block;
+}
+
+.episode-card.expanded .expand-indicator {
+  display: none;
+}
+
+.detail-section {
+  margin-bottom: 1rem;
+}
+
+.detail-section h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: var(--pico-primary);
+}
+
+.detail-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.detail-section li {
+  font-size: 0.88rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.episode-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Q&A cards */
+.qa-card {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.qa-card:hover {
+  border-color: var(--pico-primary);
+}
+
+.qa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.qa-question {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.qa-toggle {
+  font-size: 1.3rem;
+  color: var(--pico-muted-color);
+  flex-shrink: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.qa-body {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+}
+
+.qa-card.expanded .qa-body {
+  display: block;
+}
+
+.qa-answer {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 1rem 0;
+}
+
+.qa-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.qa-episodes {
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+}
+
+.ep-link {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  background: var(--pico-muted-border-color);
+  color: var(--pico-color);
+  text-decoration: none;
+  margin: 0.1rem;
+  transition: background 0.15s;
+}
+
+a.ep-link:hover {
+  background: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .search-row {
+    flex-direction: column;
+  }
+
+  .search-row select {
+    width: 100%;
+  }
+
+  .episode-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .episode-number {
+    order: -1;
+  }
+
+  .qa-header {
+    gap: 0.5rem;
+  }
+}

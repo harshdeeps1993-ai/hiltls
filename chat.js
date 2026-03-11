@@ -16,6 +16,7 @@
   // ── State ───────────────────────────────────────────────────────
   var allEpisodes = [];
   var allQuestions = [];
+  var transcriptMap = {}; // id -> transcript text
   var episodeFuse = null;
   var questionFuse = null;
   var conversationHistory = [];
@@ -68,7 +69,17 @@
       allQuestions = await qRes.json();
     } catch (e) {
       console.warn("Chat: failed to load questions.json", e);
-      // Non-fatal — we can work without synthesized questions
+    }
+
+    try {
+      var tRes = await fetch("data/transcripts.json");
+      var transcripts = await tRes.json();
+      for (var i = 0; i < transcripts.length; i++) {
+        transcriptMap[transcripts[i].id] = transcripts[i].transcript;
+      }
+      console.log("Chat: loaded " + transcripts.length + " transcripts");
+    } catch (e) {
+      console.warn("Chat: failed to load transcripts.json", e);
     }
 
     episodeFuse = new Fuse(allEpisodes, {
@@ -113,7 +124,7 @@
       qa.push({ q: questions[i], a: answer });
     }
 
-    return {
+    var compressed = {
       id: ep.id,
       title: ep.title,
       guest: ep.guest,
@@ -121,6 +132,14 @@
       summary: ep.summary,
       qa: qa,
     };
+
+    // Include full transcript if available
+    var transcript = transcriptMap[ep.id];
+    if (transcript) {
+      compressed.transcript = transcript;
+    }
+
+    return compressed;
   }
 
   function findRelevantContext(query) {

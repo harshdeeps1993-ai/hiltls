@@ -10,7 +10,7 @@ const ALLOWED_ORIGINS = [
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW = 60; // seconds
 const MAX_QUESTION_LENGTH = 500;
-const MAX_BODY_SIZE = 100 * 1024; // 100KB
+const MAX_BODY_SIZE = 1024 * 1024; // 1MB
 
 function getCorsHeaders(request) {
   const origin = request.headers.get("Origin") || "";

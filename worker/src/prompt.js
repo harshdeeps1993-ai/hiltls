@@ -23,6 +23,9 @@ export function buildSystemPrompt(episodes, questions) {
         context += `  Q: ${pair.q}\n  A: ${pair.a}\n`;
       }
     }
+    if (ep.transcript) {
+      context += `Transcript excerpt:\n${ep.transcript}\n`;
+    }
     context += "\n";
   }
 
